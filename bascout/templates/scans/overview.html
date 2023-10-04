@@ -1,0 +1,23 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Target</th>
+            <th>Last update</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for scan in scans %}
+        <tr>
+
+            <td><a href="{{ url_for('scan', scan_id=scan.id) }}">{{ scan.target}}</a></td>
+            <td>{{ scan.last_update.strftime('%a %Y-%m-%d %H:%M%:%S') }}</td>
+            <td>{{ scan.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
