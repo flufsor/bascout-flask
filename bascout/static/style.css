@@ -49,7 +49,7 @@ body {
     padding: 2rem;
 }
 
-.cta_button {
+.cta {
     background-color: #04AA6D;
     border: none;
     border-radius: 10px;
@@ -58,7 +58,15 @@ body {
     cursor: pointer;
     font-size: 18px;
     height: 3rem;
-    align-self: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 3rem;
+    width: auto;
+}
+
+.cta:hover {
+    background-color: #057956;
 }
 
 .center_content {
