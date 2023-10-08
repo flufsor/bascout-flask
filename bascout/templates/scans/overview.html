@@ -14,7 +14,7 @@
         <tr>
 
             <td><a href="{{ url_for('scan', scan_id=scan.id) }}">{{ scan.target}}</a></td>
-            <td>{{ scan.last_update.strftime('%a %Y-%m-%d %H:%M%:%S') }}</td>
+            <td>{{ scan.last_update.strftime('%a %Y-%m-%d %H:%M:%S') }}</td>
             <td>{{ scan.status }}</td>
         </tr>
         {% endfor %}
