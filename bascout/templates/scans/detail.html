@@ -1,6 +1,8 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
+<a href="{{ url_for('scans') }}">&lt; Back to scans</a>
+
 <div class="details_header">
     <div>
         <h1>Scan details for {{ targetscan.target }}</h1>
@@ -9,23 +11,20 @@
     <button class="report_button">Generate PDF report</button>
 </div>
 
-<a href="{{ url_for('scans') }}">&lt; Back to scans</a>
-
-<div class="records">
-    {{ targetscan.scans }}
-    {% for scan in targetscan.scan_results %}
-    <div class="records_table">
-        <h2>{{ scan.name }}</h2>
+<div class="details_scans">
+    {% for scan in targetscan.scans %}
+    <div class="scan_results_table">
+        <h2>{{ scan.scan_type }}</h2>
         <table>
             <thead>
                 <tr>
-                    {% for header in scan.headers %}
+                    {% for header in scan.result.headers %}
                     <th>{{ header }}</th>
                     {% endfor %}
                 </tr>
             </thead>
             <tbody>
-                {% for row in scan['values'] %}
+                {% for row in scan.result.values %}
                 <tr>
                     {% for value in row %}
                     <td>{{ value }}</td>

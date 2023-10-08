@@ -1,16 +1,17 @@
-from .Scan import Scan, ScanResult
+from .Scan import ScanResult, ScanType
 
 
-class Geoip(Scan):
+class GeoIp(ScanType):
     """Testscan class."""
+
     name = "Test Geoip Scan"
     description = "This is a test geoip scan."
+    headers = ["IP", "Location"]
 
-    def scan(self) -> ScanResult:
+    def scan(self, target: str) -> ScanResult:
         """Scan target."""
         return ScanResult(
-            name=self.name,
-            headers=["IP", "Location"],
+            headers=self.headers,
             values=[
                 ["127.0.0.1", "Home"],
                 ["1.1.1.1", "Somewhere else"],

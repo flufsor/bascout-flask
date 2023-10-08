@@ -1,3 +1,4 @@
 from .DnsScan import DnsScan
-from .Geoip import Geoip
-from .Scan import Scan, ScanResult, ScanStatus, TargetScan
+from .Geoip import GeoIp
+from .Scan import ScanResult, ScanStatus, ScanType, TargetScan
+from .ScanTypes import ScanTypes

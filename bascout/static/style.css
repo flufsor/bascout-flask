@@ -1,16 +1,19 @@
+/* Reset default styles */
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+/* Base styles */
 body {
-    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+/* Navbar styles */
 .navbar {
     background-color: #04AA6D;
     overflow: hidden;
@@ -27,46 +30,6 @@ body {
     font-size: 24px;
 }
 
-.add_scan {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.add_scan input[type="text"] {
-    width: 100%;
-    display: inline-block;
-    width: calc(100% - 80px);
-    margin: 0px 10px;
-    padding: 8px;
-    border: 2px solid #fff;
-    border-radius: 4px;
-    font-size: 16px;
-    box-shadow: none;
-}
-
-.add_scan button {
-    background-color: #04AA6D;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 24px;
-}
-
-.report_button {
-    background-color: #04AA6D;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    border: none;
-    padding: 0px 10px;
-    cursor: pointer;
-    font-size: 18px;
-    height: 3rem;
-    align-self: center;
-}
-
 .menu a {
     color: #fff;
     text-decoration: none;
@@ -78,12 +41,118 @@ body {
 .menu a:hover {
     color: #aaa;
 }
+/* General styles */
 
 .content {
     flex: 1;
     background-color: #eee;
     padding: 2rem;
 }
+
+.report_button {
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 0 10px;
+    cursor: pointer;
+    font-size: 18px;
+    height: 3rem;
+    align-self: center;
+}
+
+/* Form styles */
+.scans_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.add_scan_container button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}
+
+.form_label {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+}
+
+.form_textinput {
+    display: inline-block;
+    max-width: 16rem;
+    margin: 0 10px;
+    padding: 8px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: none;
+}
+
+/* Checkbox styles */
+.checkbox_group {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.checkbox_container {
+    flex: 1;
+    position: relative;
+    padding-left: 3.5rem;
+    padding-top: 0.2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkbox_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #04AA6D;
+}
+
+.checkbox_container .checkmark {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.checkbox_container input:checked ~ .checkmark {
+    background-color: #fff;
+}
+
+.checkbox_container input:checked ~ .checkmark:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0.5rem;
+    top: 0.2rem;
+    width: 0.3rem;
+    height: 0.7rem;
+    border: solid #04AA6D;
+    border-width: 0 0.3rem 0.3rem 0;
+    transform: rotate(45deg);
+}
+
 
 .details_header {
     display: flex;
@@ -93,16 +162,17 @@ body {
 h1 {
     font-size: 24px;
     font-weight: bold;
+    padding-top: 1rem;
 }
 
 .date {
     font-size: 14px;
     font-weight: normal;
-    margin-top: -15px;
+    margin-top: 0rem;
     margin-left: 10px;
 }
 
-.records {
+.details_scans {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -111,7 +181,7 @@ h1 {
     gap: 20px;
 }
 
-.records_table {
+.scan_results_table {
     flex: 1;
     box-sizing: border-box;
     margin-right: 10px;
@@ -121,7 +191,7 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .records_table {
+    .scan_results_table {
         min-width: calc(100% - 20px);
         max-width: calc(100% - 20px);
     }
@@ -169,6 +239,8 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
     background-color: #e5e5e5;
 }
+
+/* Footer styles */
 
 .footer {
     background-color: #04AA6D;

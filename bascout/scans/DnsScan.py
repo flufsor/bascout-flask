@@ -1,16 +1,17 @@
-from .Scan import Scan, ScanResult
+from .Scan import ScanResult, ScanType
 
 
-class DnsScan(Scan):
+class DnsScan(ScanType):
     """Testscan class."""
+
     name = "Test DNS Scan"
     description = "This is a test dns scan."
+    headers = ["Type", "Name", "Value"]
 
-    def scan(self) -> ScanResult:
+    def scan(self, target: str) -> ScanResult:
         """Scan target."""
         return ScanResult(
-            name=self.name,
-            headers=["Type", "Name", "Value"],
+            headers=self.headers,
             values=[
                 ["A", "ap.be", "127.0.0.1"],
                 ["A", "mail.ap.be", "ap.be"],

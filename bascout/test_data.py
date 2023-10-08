@@ -1,16 +1,17 @@
-from .scans import DnsScan, Geoip, ScanStatus, TargetScan
+from .scans import DnsScan, GeoIp, TargetScan
 
 scans_list = []
 
 apscan = TargetScan(0, "ap.be")
-apscan.scan_results.extend((DnsScan().scan(), Geoip().scan()))
-apscan.status = ScanStatus.COMPLETED
-apscan.last_update = apscan.last_update.replace(
-    day=apscan.last_update.day - 3, hour=apscan.last_update.hour - 1
-)
-scans_list.append(apscan)
+dns_scan = DnsScan()
+apscan.add_scan(DnsScan())
+apscan.add_scan(GeoIp())
 
-apscan = TargetScan(1, "google.com")
-apscan.scan_results.append(DnsScan().scan())
-apscan.status = ScanStatus.RUNNING
-scans_list.append(apscan)
+googlescan = TargetScan(0, "google.be")
+googlescan.add_scan(DnsScan())
+googlescan.add_scan(GeoIp())
+
+scans_list.extend([apscan, googlescan])
+
+for target_scan in scans_list:
+    target_scan.execute_scans()
