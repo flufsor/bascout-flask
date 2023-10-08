@@ -1,10 +1,10 @@
-from flask import Flask, flash, render_template, request
+from flask import Flask, flash, redirect, render_template, request, url_for
 
 from .config import Config
 from .scans import ScanTypes, TargetScan
 from .test_data import scans_list
 
-SCANTYPES = ["DnsScan", "GeoIp", "FakeScan", "Other fake scan", "Fake scan 3"]
+SCANTYPES = list(map(lambda x: x.name, ScanTypes))
 
 
 def create_app():
@@ -39,11 +39,18 @@ def create_app():
                         new_target_scan.add_scan(scan_type)
                         scan_type.scan(target)
 
+                scans_list.append(new_target_scan)
+
+                new_target_scan.execute_scans()
+
+                return redirect(url_for("scans"))
+
         return render_template("scans/add.html", scantypes=SCANTYPES)
 
     @app.route("/scan/<int:scan_id>")
     def scan(scan_id: int):
         scan = scans_list[scan_id]
+        print(scan)
         return render_template("scans/detail.html", targetscan=scan)
 
     return app

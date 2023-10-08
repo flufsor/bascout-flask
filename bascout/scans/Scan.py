@@ -90,7 +90,7 @@ class TargetScan:
             print(f"Scan failed: {str(e)}")
 
     def __str__(self):
-        return f"TargetScan({self.id}, {self.target}, {self.status})"
+        return f"TargetScan({self.id}, {self.target}, {self.status}, {self.scans})"
 
     def __repr__(self):
         return self.__str__()

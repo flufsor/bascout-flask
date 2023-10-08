@@ -4,8 +4,8 @@ from .Scan import ScanResult, ScanType
 class DnsScan(ScanType):
     """Testscan class."""
 
-    name = "Test DNS Scan"
-    description = "This is a test dns scan."
+    name = "Fake DNS Scan"
+    description = "This is a fake dns scan."
     headers = ["Type", "Name", "Value"]
 
     def scan(self, target: str) -> ScanResult:

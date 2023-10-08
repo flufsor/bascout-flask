@@ -4,7 +4,7 @@ from .Scan import ScanResult, ScanType
 class GeoIp(ScanType):
     """Testscan class."""
 
-    name = "Test Geoip Scan"
+    name = "Fake Geoip Scan"
     description = "This is a test geoip scan."
     headers = ["IP", "Location"]
 
