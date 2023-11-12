@@ -5,25 +5,24 @@
 <div class="add_scan_container">
     <form method="post">
         <label class="form_label" for="target">Target:</label>
-        <input class="form_textinput" type="text" name="target"
-            placeholder="127.0.0.1"
-            value="{{ request.form['target'] }}"></input>
+        <input class="form_textinput" type="text" name="target" placeholder="127.0.0.1" id="target"
+            value=" {{ request.form['target'] }}"></input>
         <br>
 
         <div class="scans_container">
             <label class="form_label" for="scans">Scans:</label>
             <div class="checkbox_group">
                 {% for scantype in scantypes %}
-                    <label class="checkbox_container" for="{{ scantype }}">{{ scantype }}
-                        <input type="checkbox" id="{{ scantype }}" name="scantypes" value="{{ scantype }}">
-                        <span class="checkmark"></span>
-                    </label>
+                <label class="checkbox_container" for="{{ scantype }}">{{ scantype }}
+                    <input type="checkbox" id="{{ scantype }}" name="scantypes" value="{{ scantype }}">
+                    <span class="checkmark"></span>
+                </label>
                 {% endfor %}
             </div>
         </div>
 
         <br>
-        <button class="cta" type="submit">Add scan</button>
+        <button class="cta" type="submit" id="add_scan" disabled="enabled">Add scan</button>
     </form>
 </div>
 {% endblock %}

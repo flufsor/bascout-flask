@@ -15,7 +15,7 @@ class SlowScan(ScanType):
         """Scan target."""
         start = datetime.now()
 
-        time.sleep(5)
+        time.sleep(50)
 
         end = datetime.now()
 

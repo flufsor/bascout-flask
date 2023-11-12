@@ -41,6 +41,7 @@ body {
 .menu a:hover {
     color: #aaa;
 }
+
 /* General styles */
 
 .content {
@@ -112,6 +113,11 @@ body {
     margin: 0 auto;
 }
 
+#add_scan:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 .form_label {
     font-size: 1.3rem;
     margin-top: 1.5rem;
@@ -176,11 +182,11 @@ body {
     border-radius: 4px;
 }
 
-.checkbox_container input:checked ~ .checkmark {
+.checkbox_container input:checked~.checkmark {
     background-color: #fff;
 }
 
-.checkbox_container input:checked ~ .checkmark:after {
+.checkbox_container input:checked~.checkmark:after {
     content: "";
     display: block;
     position: absolute;

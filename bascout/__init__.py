@@ -50,7 +50,6 @@ def create_app():
     @app.route("/scan/<int:scan_id>")
     def scan(scan_id: int):
         scan = scans_list[scan_id]
-        print(scan)
         return render_template("scans/detail.html", targetscan=scan)
 
     return app

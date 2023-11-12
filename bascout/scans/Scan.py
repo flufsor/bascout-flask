@@ -81,6 +81,7 @@ class TargetScan:
     def execute_scans(self):
         """Execute all scans."""
         self.status = ScanStatus.RUNNING
+
         try:
             for scan in self.scans:
                 scan.scan(self.target)
